@@ -43,7 +43,7 @@ def cross_entropy_loss(probs, target_index):
 
     Returns:
       loss: single value
-    '''
+    ''' 
     
     
     if probs.ndim>1:
