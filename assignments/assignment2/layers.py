@@ -15,7 +15,9 @@ def l2_regularization(W, reg_strength):
       gradient, np.array same shape as W - gradient of weight by l2 loss
     """
     # TODO: Copy from the previous assignment
-    raise Exception("Not implemented!")
+    loss = reg_strength * np.sum(W * W)
+    grad = reg_strength * 2 * W
+
     return loss, grad
 
 def softmax(predictions):
@@ -131,6 +133,7 @@ class ReLULayer:
     def params(self):
         # ReLU Doesn't have any parameters
         return {}
+    
     def reset_grad(self):
         pass
 
@@ -178,6 +181,7 @@ class FullyConnectedLayer:
 
     def params(self):
         return {'W': self.W, 'B': self.B}
+    
     def reset_grad(self):
         self.W.grad = np.zeros_like(self.W.value)
         self.B.grad = np.zeros_like(self.B.value)
